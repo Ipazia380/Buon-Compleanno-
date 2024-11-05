@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buon Compleanno</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@700&display=swap" rel="stylesheet"> <!-- Font Comic Sans -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0ffe0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stile per la torta */
+        .cake-image {
+            width: 250px;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Stile per l'immagine dell'amico che fa kitesurf */
+        .friend-image {
+            width: 200px;
+            height: auto;
+            margin: 10px auto;
+            display: block;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Decorazione della gattina nera */
+        .cat-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        /* Messaggio di buon compleanno */
+        .message {
+            font-family: 'Comic Sans MS', sans-serif; /* Font Comic Sans */
+            font-size: 3.5em;
+            color: #4caf50;
+            margin-top: 10px;
+            cursor: pointer;
+            animation: colorCycle 3s infinite;
+            transition: transform 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        @keyframes colorCycle {
+            0% { color: #ff4081; }
+            25% { color: #ffeb3b; }
+            50% { color: #4caf50; }
+            75% { color: #42a5f5; }
+            100% { color: #ff4081; }
+        }
+
+        .message:hover {
+            transform: scale(1.1);
+        }
+
+        /* Fuochi d'artificio su tutto lo sfondo */
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            animation: firework 1.5s ease-in-out infinite;
+            opacity: 0;
+            z-index: 0;
+        }
+
+        /* Effetto dinamico e dissolvenza per i fuochi d'artificio */
+        @keyframes firework {
+            0% { transform: scale(1); opacity: 1; }
+            50% { opacity: 0.6; transform: scale(2); }
+            100% { transform: scale(3); opacity: 0; }
+        }
+
+        /* Posizionamento casuale dei fuochi d'artificio */
+        .firework:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+        .firework:nth-child(2) { top: 30%; left: 70%; animation-delay: 0.5s; }
+        .firework:nth-child(3) { top: 50%; left: 40%; animation-delay: 1s; }
+        .firework:nth-child(4) { top: 70%; left: 60%; animation-delay: 1.5s; }
+        .firework:nth-child(5) { top: 80%; left: 30%; animation-delay: 2s; }
+        .firework:nth-child(6) { top: 10%; left: 50%; animation-delay: 2.5s; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Decorazione della gattina nera (super semplice) -->
+    <div class="cat-icon">🐾</div>
+
+    <!-- Messaggio di compleanno -->
+    <h1 class="message" onclick="changeColor()">Buon Compleanno!</h1>
+
+    <!-- Immagine della torta sotto il messaggio -->
+    <img src="https://i.ibb.co/NnFs2JJ/DALL-E-2024-11-05-22-31-42-A-cartoon-style-illustration-of-a-beautiful-birthday-cake-with-a-unique-t.webp" 
+         alt="Torta di compleanno" class="cake-image">
+
+    <!-- Immagine dell'amico che fa kitesurf -->
+    <img src="https://i.ibb.co/FwwfbSt/DALL-E-2024-11-05-22-29-56-A-cartoon-style-illustration-of-a-slender-nearly-bald-man-wearing-a-chef.webp" 
+         alt="Amico che fa kitesurf" class="friend-image">
+</div>
+
+<!-- Fuochi d'artificio su tutto lo sfondo -->
+<div class="firework"></div>
+<div class="firework"></div>
+<div class="firework"></div>
+<div class="firework"></div>
+<div class="firework"></div>
+<div class="firework"></div>
+
+<script>
+    function changeColor() {
+        const message = document.querySelector('.message');
+        message.classList.add('clicked');
+        setTimeout(() => {
+            message.classList.remove('clicked');
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
